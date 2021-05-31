@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int m, n, y, x, h, A[999999][999999];
+    cin >> m >> n;
+    cin >> y >> x;
+    cin >> h;
+    y--;
+    x--;
+    for(int i = 0; i <= n; i++){
+        for (int j = 0; i <= m; j++)
+            cin >> A[i][j];
+    }
+    A[y][x] = h;
+    if(x > 1)
+        A[y][x- 1] = h;
+    A[y][x+ 1] = h;
+    if(y > 1)
+        A[y- 1][x] = h;
+    A[y + 1][x] = h;
+
+    for(int i = 0; i <= m; i++){
+        for (int j = 0; i <= n; j++)
+            cout << A[i][j] << " ";
+        cout << endl;
+    }
+}
