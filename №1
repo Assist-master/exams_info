@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a, b;
+    cin >> a >> b;
+    int i, j, max = 0, n = 0, c, x, y;
+    for(i = a; i <= b; i++){
+        if(i < 0)
+            i = i * -1;
+        j = i;
+        if (j >= 1000){
+            y = j % 100;
+            while (j >= 100)
+                j = j / 10;
+            x = j;
+            c = x - y;
+        }
+        else
+            c = 0;
+        if (c!= 0){
+            if (i % c == 0){
+                n++;
+                if(i > max)
+                    max = i;
+            }
+        }
+    }
+    if(n == 0)
+        cout << "0" << " " << "0" << endl;
+    else
+        cout << n << " " << max << endl;
+}
