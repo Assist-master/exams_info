@@ -1,0 +1,24 @@
+#include <iostream>
+#include <sstream>
+using namespace std;
+int N;
+
+void Function( string A, string& w, int N)
+{
+  int i;
+  if ( N == w.size() ) {
+    cout << w << endl;
+    return;
+    }
+  for (i=0; i<A.size(); i++) {
+    w[N] = A[i];
+    Function(A, w, N+1);
+    }
+}
+
+main()
+{
+  string word = "..";
+  Function("INFA", word, 0);
+  cin.get();
+}
