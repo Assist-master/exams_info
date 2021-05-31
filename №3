@@ -1,0 +1,31 @@
+#include <fstream>
+using namespace std;
+
+int main(){
+    int i, j, max = 0 , k = 0, o = 0;
+    char max1 = 'Z';
+    string s;
+    ofstream F ("input.txt", ios::out);
+    F >> s;
+
+        for(i = 0; i < s.size() - 1; i++){
+        o = i - 1;
+            for(j = i + 1; j < s.size(); j++){
+                if(s[i] == s[j]){
+                    k = 1;
+                    if(max < j - o){
+                        max = j - o;
+                        max1 = s[i];
+                    }
+                    else if ((max == j - 0) && (max1 - s[i] > 0))
+                            max1 = s[i];
+                }
+            }
+        }
+    if (k == 0)
+        cout << "0" << endl;
+    else
+        cout << max1 << " " << max << endl;
+
+    F.close();
+}
